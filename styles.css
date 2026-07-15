@@ -182,6 +182,7 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
   content: "";
   position: absolute; inset: 0;
   background: rgba(251, 245, 236, 0);
+  -webkit-backdrop-filter: blur(0px);
   backdrop-filter: blur(0px);
   transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
   z-index: -1;
@@ -189,6 +190,7 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
 .site-header.is-scrolled{ padding: 12px 0; box-shadow: 0 8px 30px -18px rgba(33,16,49,0.4); }
 .site-header.is-scrolled::before{
   background: rgba(251, 245, 236, 0.88);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 .header-inner{
@@ -488,25 +490,51 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
 
 .menu-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+  align-items: stretch;
 }
 .menu-card{
   background: var(--white);
   border-radius: var(--radius-md);
-  padding: 28px;
+  padding: 24px;
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(139,63,201,0.08);
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-}
-.menu-card img{
-  width: 100%;
-  min-height: 220px;
-  object-fit: cover;
-  border-radius: 18px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+  justify-content: space-between;
 }
 .menu-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+.menu-card-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+.menu-media{
+  margin-bottom: 18px;
+}
+.menu-image-strip{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(130px, 1fr);
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+}
+.menu-media--two .menu-image-strip{ grid-auto-columns: minmax(120px, 1fr); }
+.menu-media--three .menu-image-strip{ grid-auto-columns: minmax(110px, 1fr); }
+.menu-image-strip img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 14px;
+  scroll-snap-align: start;
+  box-shadow: 0 8px 20px -14px rgba(33,16,49,0.4);
+}
 .menu-card-top{
   display: flex;
   align-items: flex-start;
@@ -514,7 +542,7 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
   gap: 14px;
 }
 .menu-card h3{
-  font-size: 1.32rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .menu-card .kicker{
@@ -537,7 +565,7 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
 .menu-card .icon svg{ width: 24px; height: 24px; color: var(--purple-600); }
 
 .price-rows{
-  margin-top: 20px;
+  margin-top: 18px;
   border-top: 1px dashed rgba(33,16,49,0.18);
 }
 .price-row{
@@ -560,6 +588,10 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
   font-size: 0.84rem;
   color: var(--purple-600);
   line-height: 1.6;
+}
+.menu-card .btn{
+  margin-top: 20px;
+  align-self: flex-start;
 }
 .menu-card .order-link{
   margin-top: 22px;
@@ -988,6 +1020,21 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
 /* ==========================================================================
    Responsive
    ========================================================================== */
+@media (min-width: 1025px) and (max-width: 1366px){
+  /* Tweak spacing and column proportions for common laptop sizes */
+  .container{ max-width: 1100px; padding: 0 28px; }
+  .hero{ padding-top: 90px; }
+  .hero .container{ grid-template-columns: 1fr 1fr; gap: 40px; }
+  .hero-copy h1{ font-size: clamp(2.6rem, 3.6vw, 3.6rem); }
+  .hero-copy .lede{ max-width: 520px; }
+  .hero-visual{ max-width: 520px; margin: 0; }
+  .hero-visual .badge{ width: 96px; height: 96px; bottom: -18px; left: -18px; font-size: 0.78rem; }
+  .brand-word{ font-size: 1.9rem; }
+  .nav-desktop a{ padding-bottom: 2px; }
+  .menu-grid{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .menu-card img{ min-height: 200px; }
+  .footer-top{ grid-template-columns: repeat(3, 1fr); gap: 28px; }
+}
 @media (max-width: 1024px){
   .hero .container{ grid-template-columns: 1fr; }
   .hero-visual{ order: -1; max-width: 420px; margin: 0 auto; }
