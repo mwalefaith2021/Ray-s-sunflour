@@ -796,12 +796,20 @@ input, select, textarea{ font-family: inherit; font-size: 1rem; }
   gap: 14px;
 }
 .pay-card .icon{
-  width: 48px; height: 48px;
-  border-radius: 12px;
+  width: 56px; height: 56px;
+  border-radius: 16px;
   background: var(--lilac-100);
   display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  padding: 8px;
 }
 .pay-card .icon svg{ width: 24px; height: 24px; color: var(--purple-600); }
+.pay-card .pay-logo{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .pay-card h3{ font-size: 1.15rem; }
 .pay-card .num-row{
   margin-top: 22px;
