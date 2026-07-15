@@ -161,10 +161,8 @@
   const STORAGE_KEY = "rays-sunflour-reviews";
 
   const seedReviews = [
-    { name: "Amantle K.", rating: 5, msg: "The Oreo brownies were unreal — so fudgy, and the box arrived perfectly packed. Already planning my next order!", date: "2026-06-02" },
-    { name: "Boitumelo M.", rating: 5, msg: "Ordered the cupcake and cakesicle combo for a baby shower. Everyone asked where I got them from. Highly recommend Ray's!", date: "2026-05-21" },
-    { name: "Tumi S.", rating: 4, msg: "Beautiful chocolate heart box for our anniversary. Booking on WhatsApp was quick and easy, just remember to order a few days ahead.", date: "2026-04-14" },
-    { name: "Naledi P.", rating: 5, msg: "The loaf cake flavours are so good, marble is my favourite. Fresh, moist, and reasonably priced.", date: "2026-03-30" },
+    { name: "Amantle K.", rating: 5, msg: "The Oreo brownies were unreal, so fudgy, and the box arrived perfectly packed. Already planning my next order!", date: "2025-06-02" },
+    { name: "Boitumelo M.", rating: 5, msg: "Ordered the cupcake and cakesicle combo for a baby shower. Everyone asked where I got them from. Highly recommend Ray's!", date: "2025-05-21" },
   ];
 
   function loadReviews() {
